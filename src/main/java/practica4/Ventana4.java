@@ -107,6 +107,28 @@ public class Ventana4 extends javax.swing.JFrame {
         
         //lapiz.drawOval(x,y, 1, 1); //Usar para pintar un pixel  
         //implementar el algoritmo
+       int X=0;
+       Y=radio // no se como poner la formula y que formula usar
+       P=3-2r
+       while X<Y
+       PX=X+Xcentro; // el centro como lo definimos??
+       PY=Y+Ycentro;
+       lapiz.drawOval(PX,PY, 1, 1); //Usar para pintar un pixel  
+        lapiz.drawOval(PX,-PY, 1, 1); //Usar para pintar un pixel  
+        lapiz.drawOval(-PX,PY, 1, 1); //Usar para pintar un pixel  
+        lapiz.drawOval(-PX,PY, 1, 1); //Usar para pintar un pixel  
+        lapiz.drawOval(PY,PX, 1, 1); //Usar para pintar un pixel  
+        lapiz.drawOval(PY,-PX, 1, 1); //Usar para pintar un pixel  
+        lapiz.drawOval(-PY,PX, 1, 1); //Usar para pintar un pixel  
+        lapiz.drawOval(-PY,PX, 1, 1); //Usar para pintar un pixel  
+        if P<0 entonces // aqui en el entonces que es lo que se debe de poner?
+         P=P+4X+6
+        else // es en otro caso, pero no se si sea un else
+         P=P+4X-4Y+10
+        Y=Y-1
+        Fin del si-entonces // el entonces no se a que se refiera
+        X=X+1
+        fin else
     }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

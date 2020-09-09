@@ -102,6 +102,28 @@ public class Ventana5 extends javax.swing.JFrame {
     private void circunferenciaPM (int Xinicial, int Yinicial, int Xfinal, int Yfinal) {
         //Graphics lapiz= jPanelPizarron.getGraphics();
         //implementar el algoritmo
+    X=0
+    Y=radio // no se como poner la formula y que formula usar
+    P=1-r
+    while X<Y
+    PX=X+Xcentro; // el centro como lo definimos??
+    PY=Y+Ycentro;
+        lapiz.drawOval(PX,PY, 1, 1); //Usar para pintar un pixel  
+        lapiz.drawOval(PX,-PY, 1, 1); //Usar para pintar un pixel  
+        lapiz.drawOval(-PX,PY, 1, 1); //Usar para pintar un pixel  
+        lapiz.drawOval(-PX,PY, 1, 1); //Usar para pintar un pixel  
+        lapiz.drawOval(PY,PX, 1, 1); //Usar para pintar un pixel  
+        lapiz.drawOval(PY,-PX, 1, 1); //Usar para pintar un pixel  
+        lapiz.drawOval(-PY,PX, 1, 1); //Usar para pintar un pixel  
+        lapiz.drawOval(-PY,PX, 1, 1); //Usar para pintar un pixel  
+     if P<0 entonces // el entonces no se a que se refiera
+    P=P+2X+3
+    else// es en otro caso, pero no se si sea un else
+    P=P+2X-2Y+5
+    Y=Y-1
+    fin del si-entonces // el entonces no se a que se refiera
+    X=X+1
+    fin else
     }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

@@ -102,22 +102,24 @@ public class Ventana3 extends javax.swing.JFrame {
     private void circunferencia (int Xinicial, int Yinicial, int Xfinal, int Yfinal){   
       //  Graphics lapiz= jPanelPizarron.getGraphics();
         //implementar algoritmo DDA
-        int x;
-        int y;
-        int ultimo;
-        // if Xinicial > Xfinal;
-        if(Xinicial > Xfinal){
-            x = Xfinal;
-            y = Yfinal;
-            ultimo = Xinicial;
-        }else{
-            x = Xinicial;
-            y = Yinicial;
-            ultimo = Xfinal;
-        }
-        lapiz.drawOval(x,y, 1, 1); //Usar para pintar un pixel  
+        area = Π · r2 //esto es para sacar el radio cuando conocemos el area
+        int X=0;
+        int Y= //aqui va el radio pero no supe que poner creo que es area*3.1416*radio al cuadrado
+        while X<Y // le puse el while porque dice que es mientras
+        PX=X+Xcentro;// tengo duda porque es centro??
+        PY=Y+Ycentro;
+        lapiz.drawOval(PX,PY, 1, 1); //Usar para pintar un pixel  
+        lapiz.drawOval(PX,-PY, 1, 1); //Usar para pintar un pixel  
+        lapiz.drawOval(-PX,PY, 1, 1); //Usar para pintar un pixel  
+        lapiz.drawOval(-PX,PY, 1, 1); //Usar para pintar un pixel  
+        lapiz.drawOval(PY,PX, 1, 1); //Usar para pintar un pixel  
+        lapiz.drawOval(PY,PX, 1, 1); //Usar para pintar un pixel  
+        lapiz.drawOval(PY,-PX, 1, 1); //Usar para pintar un pixel  
+        lapiz.drawOval(-PY,PX, 1, 1); //Usar para pintar un pixel  
+        lapiz.drawOval(-PY,PX, 1, 1); //Usar para pintar un pixel  
         
-        //lapiz.drawOval(Xinicial, Yinicial, 1, 1); //Usar para pintar un pixel
+        Y=Math.sqrt(radio*radio-X*X) //el Math.sqrt lo puse porque vi que con ese se pone para la raiz cuadrada
+        fin Mientras // creo que aqui se acaba el while        
     }
     /**
      * @param args the command line arguments
