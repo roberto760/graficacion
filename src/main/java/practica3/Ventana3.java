@@ -1,9 +1,11 @@
-/**
+/*
+
+
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package practica2;
+package practica3;
 
 import java.awt.Graphics;
 import operacion.Calculo;
@@ -12,14 +14,14 @@ import operacion.Calculo;
  *
  * @author roberto
  */
-public class Ventana2 extends javax.swing.JFrame {
-    
+public class Ventana3 extends javax.swing.JFrame {
+
     private Calculo calculos;
     private Graphics lapiz;
     /**
      * Creates new form Ventana
      */
-    public Ventana2() {
+    public Ventana3() {
         initComponents();
         calculos = new Calculo();
         lapiz= jPanelPizarron.getGraphics();
@@ -38,9 +40,9 @@ public class Ventana2 extends javax.swing.JFrame {
         btnLinea = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Bresenham");
+        setTitle("circunferencia");
 
-        jPanelPizarron.setBackground(new java.awt.Color(21, 234, 223));
+        jPanelPizarron.setBackground(new java.awt.Color(79, 229, 254));
 
         javax.swing.GroupLayout jPanelPizarronLayout = new javax.swing.GroupLayout(jPanelPizarron);
         jPanelPizarron.setLayout(jPanelPizarronLayout);
@@ -50,10 +52,10 @@ public class Ventana2 extends javax.swing.JFrame {
         );
         jPanelPizarronLayout.setVerticalGroup(
             jPanelPizarronLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 221, Short.MAX_VALUE)
+            .addGap(0, 228, Short.MAX_VALUE)
         );
 
-        btnLinea.setLabel("Dibuja linea Bresenham");
+        btnLinea.setLabel("dibuja circunferencia");
         btnLinea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLineaActionPerformed(evt);
@@ -69,7 +71,7 @@ public class Ventana2 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanelPizarron, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 222, Short.MAX_VALUE)
+                        .addGap(0, 237, Short.MAX_VALUE)
                         .addComponent(btnLinea)))
                 .addContainerGap())
         );
@@ -78,9 +80,9 @@ public class Ventana2 extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanelPizarron, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnLinea)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
@@ -90,21 +92,17 @@ public class Ventana2 extends javax.swing.JFrame {
         // TODO add your handling code here:
         //lineaBresenham(20,30,250,150);
         for(int l=0; l<5000; l=l+1){
-            lineaBresenham(calculos.getRandom(500, 0),
+            circunferencia( calculos.getRandom(500, 0),
                     calculos.getRandom(500, 0),
                     calculos.getRandom(500, 0),
                     calculos.getRandom(500, 0));
             System.out.println("l: "+l);
         }
-        
     }//GEN-LAST:event_btnLineaActionPerformed
-    
-    private void lineaBresenham (int Xinicial, int Yinicial, int Xfinal, int Yfinal){   
+
+    private void circunferencia (int Xinicial, int Yinicial, int Xfinal, int Yfinal){   
       //  Graphics lapiz= jPanelPizarron.getGraphics();
         //implementar algoritmo DDA
-        int DeltaX = Math.abs (Xfinal-Xinicial);
-        int DeltaY = Math.abs (Yfinal-Yinicial);
-        int ConstanteP =2*DeltaY-DeltaX;
         int x;
         int y;
         int ultimo;
@@ -119,20 +117,9 @@ public class Ventana2 extends javax.swing.JFrame {
             ultimo = Xfinal;
         }
         lapiz.drawOval(x,y, 1, 1); //Usar para pintar un pixel  
-        while(x<ultimo){
-            x=x+1;
-            if(ConstanteP<0){
-               ConstanteP = ConstanteP+ (2*DeltaY); 
-            }else{
-                y=y+1;
-                ConstanteP = ConstanteP+ (2*DeltaY-DeltaX);
-            }
-            lapiz.drawOval(x,y, 1, 1); //Usar para pintar un pixel  
-        }
         
         //lapiz.drawOval(Xinicial, Yinicial, 1, 1); //Usar para pintar un pixel
     }
-    
     /**
      * @param args the command line arguments
      */
@@ -150,13 +137,13 @@ public class Ventana2 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ventana2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventana3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ventana2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventana3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ventana2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventana3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ventana2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventana3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -164,7 +151,7 @@ public class Ventana2 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Ventana2().setVisible(true);
+                new Ventana3().setVisible(true);
             }
         });
     }
