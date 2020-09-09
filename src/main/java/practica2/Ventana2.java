@@ -6,18 +6,23 @@
 package practica2;
 
 import java.awt.Graphics;
+import operacion.Calculo;
 
 /**
  *
  * @author roberto
  */
 public class Ventana2 extends javax.swing.JFrame {
-
+    
+    private Calculo calculos;
+    private Graphics lapiz;
     /**
      * Creates new form Ventana
      */
     public Ventana2() {
         initComponents();
+        calculos = new Calculo();
+        lapiz= jPanelPizarron.getGraphics();
     }
 
     /**
@@ -82,22 +87,49 @@ public class Ventana2 extends javax.swing.JFrame {
 
     private void btnLineaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLineaActionPerformed
         // TODO add your handling code here:
-        lineaBresenham(20,30,250,150);
+        //lineaBresenham(20,30,250,150);
+        for(int l=0; l<5000; l=l+1){
+            lineaBresenham(calculos.getRandom(500, 0),
+                    calculos.getRandom(500, 0),
+                    calculos.getRandom(500, 0),
+                    calculos.getRandom(500, 0));
+            System.out.println("l: "+l);
+        }
         
     }//GEN-LAST:event_btnLineaActionPerformed
     
     private void lineaBresenham (int Xinicial, int Yinicial, int Xfinal, int Yfinal){   
-        Graphics lapiz= jPanelPizarron.getGraphics();
+      //  Graphics lapiz= jPanelPizarron.getGraphics();
         //implementar algoritmo DDA
         int DeltaX = Math.abs (Xfinal-Xinicial);
         int DeltaY = Math.abs (Yfinal-Yinicial);
         int ConstanteP =2*DeltaY-DeltaX;
         int x;
         int y;
-       // if Xinicial > Xfinal;
-        x = Xfinal;
-        y = Yfinal;
-        lapiz.drawOval(Xinicial, Yinicial, 1, 1); //Usar para pintar un pixel
+        int ultimo;
+        // if Xinicial > Xfinal;
+        if(Xinicial > Xfinal){
+            x = Xfinal;
+            y = Yfinal;
+            ultimo = Xinicial;
+        }else{
+            x = Xinicial;
+            y = Yinicial;
+            ultimo = Xfinal;
+        }
+        lapiz.drawOval(x,y, 1, 1); //Usar para pintar un pixel  
+        while(x<ultimo){
+            x=x+1;
+            if(ConstanteP<0){
+               ConstanteP = ConstanteP+ (2*DeltaY); 
+            }else{
+                y=y+1;
+                ConstanteP = ConstanteP+ (2*DeltaY-DeltaX);
+            }
+            lapiz.drawOval(x,y, 1, 1); //Usar para pintar un pixel  
+        }
+        
+        //lapiz.drawOval(Xinicial, Yinicial, 1, 1); //Usar para pintar un pixel
     }
     
     /**
