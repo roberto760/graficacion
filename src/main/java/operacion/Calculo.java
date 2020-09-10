@@ -15,6 +15,12 @@ public class Calculo {
         int valorDado = (int) Math.floor(Math.random()*max+min);
         return valorDado;
     }
+    
+    public double getRandom(double max, double min){
+        return Math.random()*max+min;
+    }
+    
+
     public static void main(String args[]){
         System.out.println(new Calculo().getRandom(5000, 1) );
     }

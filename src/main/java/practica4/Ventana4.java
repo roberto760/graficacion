@@ -94,7 +94,6 @@ public class Ventana4 extends javax.swing.JFrame {
         for(int l=0; l<5000; l=l+1){
             circunferenciaBresenham( calculos.getRandom(500, 0),
                     calculos.getRandom(500, 0),
-                    calculos.getRandom(500, 0),
                     calculos.getRandom(500, 0));
             System.out.println("l: "+l);
         }
@@ -102,12 +101,37 @@ public class Ventana4 extends javax.swing.JFrame {
                 
     }//GEN-LAST:event_btnLineaActionPerformed
 
-    private void circunferenciaBresenham (int Xinicial, int Yinicial, int Xfinal, int Yfinal) {
+    private void circunferenciaBresenham (int xCentro, int yCentro, int radio){   
         //Graphics lapiz= jPanelPizarron.getGraphics();
-        
+        int x = 0;
+        int y = radio;
+        int P = 3-(2*radio);
+        int PX, PY;
+        while(x<y){
+            PX = x + xCentro;
+            PY = y + yCentro;
+            
+            lapiz.drawOval((int)PX,(int)PY, 1, 1); //Usar para pintar un pixel  
+            lapiz.drawOval((int)PX,(int)PY*-1, 1, 1); //Usar para pintar un pixel  
+            lapiz.drawOval((int)PX*-1,(int)PY, 1, 1); //Usar para pintar un pixel  
+            lapiz.drawOval((int)PX*-1,(int)PY*-1, 1, 1); //Usar para pintar un pixel  
+            
+            lapiz.drawOval((int)PY,(int)PX, 1, 1); //Usar para pintar un pixel  
+            lapiz.drawOval((int)PY,(int)PX*-1, 1, 1); //Usar para pintar un pixel  
+            lapiz.drawOval((int)PY*-1,(int)PX, 1, 1); //Usar para pintar un pixel  
+            lapiz.drawOval((int)PY*-1,(int)PX*-1, 1, 1); //Usar para pintar un pixel  
+            
+            if(P<0){
+                P = P +(4*x)+6;
+            }else{
+                P = P +(4*x)-(4*y)+10;
+                y = y-1;
+            }
+            x=x+1;
+        }
         //lapiz.drawOval(x,y, 1, 1); //Usar para pintar un pixel  
         //implementar el algoritmo
-       int X=0;
+/*       int X=0;
        Y=radio // no se como poner la formula y que formula usar
        P=3-2r
        while X<Y
@@ -128,7 +152,7 @@ public class Ventana4 extends javax.swing.JFrame {
         Y=Y-1
         Fin del si-entonces // el entonces no se a que se refiera
         X=X+1
-        fin else
+        fin else*/
     }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

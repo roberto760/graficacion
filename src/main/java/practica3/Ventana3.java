@@ -91,35 +91,45 @@ public class Ventana3 extends javax.swing.JFrame {
     private void btnLineaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLineaActionPerformed
         // TODO add your handling code here
         for(int l=0; l<5000; l=l+1){
-            circunferencia( calculos.getRandom(500, 0),
-                    calculos.getRandom(500, 0),
-                    calculos.getRandom(500, 0),
-                    calculos.getRandom(500, 0));
+            circunferencia( calculos.getRandom(500.00, 0.00),
+                    calculos.getRandom(500.00, 0.00),
+                    calculos.getRandom(500.00, 0.00));
             System.out.println("l: "+l);
         }
     }//GEN-LAST:event_btnLineaActionPerformed
 
-    private void circunferencia (int Xinicial, int Yinicial, int Xfinal, int Yfinal){   
+    private void circunferencia (double xCentro, double yCentro, double radio){   
       //  Graphics lapiz= jPanelPizarron.getGraphics();
         //implementar algoritmo DDA
-        area = Π · r2 //esto es para sacar el radio cuando conocemos el area
-        int X=0;
-        int Y= //aqui va el radio pero no supe que poner creo que es area*3.1416*radio al cuadrado
-        while X<Y // le puse el while porque dice que es mientras
-        PX=X+Xcentro;// tengo duda porque es centro??
-        PY=Y+Ycentro;
-        lapiz.drawOval(PX,PY, 1, 1); //Usar para pintar un pixel  
-        lapiz.drawOval(PX,-PY, 1, 1); //Usar para pintar un pixel  
-        lapiz.drawOval(-PX,PY, 1, 1); //Usar para pintar un pixel  
-        lapiz.drawOval(-PX,PY, 1, 1); //Usar para pintar un pixel  
-        lapiz.drawOval(PY,PX, 1, 1); //Usar para pintar un pixel  
-        lapiz.drawOval(PY,PX, 1, 1); //Usar para pintar un pixel  
-        lapiz.drawOval(PY,-PX, 1, 1); //Usar para pintar un pixel  
-        lapiz.drawOval(-PY,PX, 1, 1); //Usar para pintar un pixel  
-        lapiz.drawOval(-PY,PX, 1, 1); //Usar para pintar un pixel  
-        
-        Y=Math.sqrt(radio*radio-X*X) //el Math.sqrt lo puse porque vi que con ese se pone para la raiz cuadrada
-        fin Mientras // creo que aqui se acaba el while        
+        double x=0;
+        double y = radio;
+        double PX=x+xCentro;
+        double PY=x+yCentro;
+        int intentos=0;
+        while(x<y){
+            PX=x+xCentro;
+            PY=x+yCentro;
+            lapiz.drawOval((int)PX,(int)PY, 1, 1); //Usar para pintar un pixel  
+            lapiz.drawOval((int)PX,(int)PY*-1, 1, 1); //Usar para pintar un pixel  
+            lapiz.drawOval((int)PX*-1,(int)PY, 1, 1); //Usar para pintar un pixel  
+            lapiz.drawOval((int)PX*-1,(int)PY*-1, 1, 1); //Usar para pintar un pixel  
+            
+            lapiz.drawOval((int)PY,(int)PX, 1, 1); //Usar para pintar un pixel  
+            lapiz.drawOval((int)PY,(int)PX*-1, 1, 1); //Usar para pintar un pixel  
+            lapiz.drawOval((int)PY*-1,(int)PX, 1, 1); //Usar para pintar un pixel  
+            lapiz.drawOval((int)PY*-1,(int)PX*-1, 1, 1); //Usar para pintar un pixel  
+            y= Math.sqrt((radio*radio)-(x*x));
+            
+            /* al no varar x tenemos
+                    y = Math.sqrt((radio*radio)-(x*x));
+                    y = Math.sqrt((radio*radio)-(0*0));
+                    y = Math.sqrt((radio*radio));
+                    y = radio;
+            
+                Jamas será diferente de radio y si x=0 y no varia, l sistema se cicla
+            */
+            
+        }
     }
     /**
      * @param args the command line arguments
